@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Image from "next/image";
-import { coreExpertise } from "@/data/tech-stack";
 import Reveal from "./ui/Reveal";
+import SkillsWordCloud from "./ui/SkillsWordCloud";
 
 const About = memo(() => (
   <section id="about" className="py-20 w-full space-y-10">
@@ -37,18 +37,18 @@ const About = memo(() => (
         {/* Content */}
         <div className="space-y-6">
           <p className="text-white font-medium">
-            Versatile DevOps, Cloud and Data specialist with 9 years of experience, having a deep understanding of software, analytics, manufacturing processes, and business operations.
+            Versatile analytics professional with 6+ years of experience spanning strategy analytics, data science, and business intelligence &mdash; with a deep understanding of predictive modelling, experiment design, and data-driven decision-making.
           </p>
           <p className="text-white font-medium">
-            Adept at rapidly assimilating information, drawing conclusions, and confidently presenting insights to both technical and non-technical audiences.
+            Adept at rapidly assimilating complex datasets, drawing actionable conclusions, and confidently presenting insights to both technical and non-technical audiences across industries.
           </p>
           <p className="text-white font-medium">
-            As a creative, curious and analytical thinker, I excel in approaching technology from a business perspective, with a strong focus on automation and data-driven solutions to drive growth and efficiency.
+            As a curious and analytical thinker, I approach every problem by asking better questions first. My focus is on building models and systems that don&apos;t just explain the past but shape the future &mdash; from churn prediction to cost optimization to capacity planning.
           </p>
         </div>
       </div>
       
-      {/* Expertise Card */}
+      {/* Skills Word Cloud Card */}
       <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 backdrop-blur-sm p-8">
         {/* Background GIF */}
         <div className="absolute inset-0 -z-10">
@@ -66,22 +66,9 @@ const About = memo(() => (
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
-        {/* Content */}
+        {/* Word Cloud */}
         <div className="relative z-10">
-          <h4 className="text-3xl md:text-4xl font-bold mb-6">
-            <span className="text-[#00ff66]">Core Expertise</span>
-          </h4>
-          
-          <div className="flex flex-wrap gap-3">
-            {coreExpertise.map((skill) => (
-              <div
-                key={skill}
-                className="bg-[#16463e]/60 text-white text-sm font-medium px-4 py-2 rounded-full border border-[#00ff66]/20"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
+          <SkillsWordCloud />
         </div>
       </div>
     </div>

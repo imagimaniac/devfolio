@@ -7,7 +7,6 @@ import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/ui/NavBar";
-import Certifications from "@/components/Certifications";
 import BackgroundPatterns from "@/components/ui/BackgroundPatterns";
 import { motion } from "framer-motion";
 import { useZenMode } from "@/lib/ZenModeContext";
@@ -16,26 +15,21 @@ const Home = () => {
   const { zenMode } = useZenMode();
 
   return (
-    // Add overflow-x-hidden to prevent horizontal scrollbar
     <main className={`min-h-screen relative bg-black overflow-x-hidden ${zenMode ? 'zen-mode' : ''}`}>
       <BackgroundPatterns />
 
       {/* Content */}
       <div className="relative z-10">
         <NavBar />
-        {/* Apply max-width and mx-auto to center the content block */}
-        {/* Retain padding for spacing within the centered block */}
         <div className={`w-full max-w-7xl mx-auto ${zenMode ? 'hide-content' : ''}`}>
-          <div className="px-5 sm:px-10 md:px-20 lg:px-40"> {/* Adjusted padding slightly for responsiveness */}
+          <div className="px-5 sm:px-10 md:px-20 lg:px-40">
             <Hero />
             <About />
-            <Projects />
             <Experience />
-            <Certifications />
+            <Projects />
             <Contact />
           </div>
         </div>
-        {/* Make footer full-width by placing it outside the centered wrapper */}
         <Footer />
       </div>
     </main>

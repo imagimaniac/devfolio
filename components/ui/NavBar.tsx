@@ -4,15 +4,15 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { navItems, socialLinks } from "@/data";
-import { User, Briefcase, Code2, Award, Mail, Download, Github, Linkedin, Instagram, BookOpen, Eye, EyeOff, Menu, X } from "lucide-react";
+import { User, Briefcase, Code2, Award, Mail, Download, Github, Linkedin, Instagram, BookOpen, Eye, EyeOff, Menu, X, GraduationCap, BarChart3 } from "lucide-react";
 import { useZenMode } from "@/lib/ZenModeContext";
 import { smoothScrollTo } from "@/utils/smoothScroll";
 
 const iconMap = {
   About: User,
-  Projects: Code2,
   Experience: Briefcase,
-  Certifications: Award,
+  Projects: Code2,
+  Education: GraduationCap,
   Contact: Mail,
 } as const;
 
@@ -86,17 +86,19 @@ const NavBar = (): JSX.Element => {
   const handleDownloadCV = useCallback(() => {
     const link = document.createElement("a");
     link.href = "assets/CV.pdf";
-    link.download = "Bhushan-Rane-CV.pdf";
+    link.download = "Pratik-Gajanan-CV.pdf";
     link.click();
   }, []);
 
   // Memoize nav items
   const memoizedNavItems = useMemo(() => navItems, []);
 
-  const socialIconMap = {
+  const socialIconMap: Record<string, any> = {
     Github: Github,
     Linkedin: Linkedin,
-    BookOpen: BookOpen
+    BookOpen: BookOpen,
+    BarChart3: BarChart3,
+    Mail: Mail,
   };
 
   return (

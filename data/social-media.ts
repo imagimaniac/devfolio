@@ -1,7 +1,9 @@
 export const personalInfo = {
-  email: 'eulersidentity2718@gmail.com',
-  github: 'drtinkerer',
-  linkedin: 'drtinkerer',
+  email: 'pghagawane175@gmail.com',
+  github: 'imagimaniac',
+  linkedin: 'imagimaniac',
+  phone: '+918237742096',
+  kaggle: 'imagimaniac',
 };
 
 export const socialMedia = [
@@ -13,7 +15,7 @@ export const socialMedia = [
   {
     id: 2,
     img: "assets/linkedin.svg",
-    link: `https://www.linkedin.com/in/${personalInfo.github}/`,
+    link: `https://www.linkedin.com/in/${personalInfo.linkedin}/`,
   },
 ];
 
@@ -27,13 +29,19 @@ export const socialLinks = [
   {
     name: "LinkedIn",
     icon: "Linkedin",
-    href: `https://linkedin.com/in/${personalInfo.github}`,
+    href: `https://linkedin.com/in/${personalInfo.linkedin}`,
     color: "hover:text-blue-500"
   },
   {
-    name: "Medium",
-    icon: "BookOpen",
-    href: `https://medium.com/@${personalInfo.github}`,
-    color: "hover:text-gray-600"
+    name: "Kaggle",
+    icon: "BarChart3",
+    href: `https://www.kaggle.com/${personalInfo.kaggle}`,
+    color: "hover:text-cyan-400"
+  },
+  {
+    name: "Email",
+    icon: "Mail",
+    href: `mailto:${personalInfo.email}`,
+    color: "hover:text-red-400"
   }
 ];

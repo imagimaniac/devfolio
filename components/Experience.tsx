@@ -36,6 +36,8 @@ const Experience = () => {
 
   return (
     <section id="experience" className="w-full py-20">
+      {/* Invisible anchor for Education nav link */}
+      <div id="education" className="absolute -mt-20" />
       <div className="container mx-auto px-4">
         <Reveal>
           <h3 className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl font-semibold">

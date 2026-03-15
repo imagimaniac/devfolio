@@ -29,6 +29,7 @@ interface BentoGridItemProps {
   img?: string;
   techs?: string[];
   status?: "in-progress" | "private";
+  highlight?: string;
 }
 
 export const BentoGridItem: React.FC<BentoGridItemProps> = ({
@@ -40,6 +41,7 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
   img,
   techs,
   status,
+  highlight,
 }) => {
   const [imgError, setImgError] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -118,6 +120,13 @@ export const BentoGridItem: React.FC<BentoGridItemProps> = ({
             </a>
           )}
         </div>
+
+        {/* Highlight stat */}
+        {highlight && (
+          <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold text-circuitGreen border border-circuitGreen/30 bg-circuitGreen/10">
+            {highlight}
+          </div>
+        )}
 
         {/* Description */}
         <p className="text-xs text-gray-400">{description}</p>

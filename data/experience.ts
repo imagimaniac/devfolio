@@ -9,92 +9,116 @@ export interface Experience {
   technologies: string[];
   companyLogo?: string;
   companyUrl?: string;
-  // New fields for enhanced design
-  companyColor?: string; // For timeline dot customization
-  isCurrentPosition?: boolean; // For special current position styling
-  achievements?: string[]; // Key achievements for this role
-  teamSize?: string; // Team size information
+  companyColor?: string;
+  isCurrentPosition?: boolean;
+  achievements?: string[];
+  teamSize?: string;
 }
 
 export const experience: Experience[] = [
   {
     id: 1,
-    title: "Sr DevOps/Platform Engineer",
-    company: "Ollion (CloudCover)",
-    location: "Pune, India",
-    startDate: "June 2022",
+    title: "Manager - Strategy Analytics",
+    company: "Encore Capital Group",
+    location: "India",
+    startDate: "July 2025",
     endDate: "Present",
     description: [
-      "Led the secure migration of multi-tiered applications from Hetzner and Azure to Google Cloud for a Swiss WealthTech client, provisioning GKE clusters with Envoy Gateway, managed databases following industry-standard security best practices",
-      "Developed a multi-cloud AI sandbox provisioner (GCP, AWS, Azure, OCI) with chat and Slack/CLI integration. Enabled natural language cloud provisioning with security and approval workflows, achieving 95% cost savings",
-      "Implemented ArgoCD Autopilot for GitOps-driven deployments, managing 15+ GKE clusters from a single Argo CD instance while maintaining high availability and scalability",
-      "Implemented zero-trust network access for remote teams, initially with Cloudflare Tunnels and later migrating to a self-hosted NetBird VPN solution for private network connectivity",
-      "Built CI/CD pipelines on GitLab to provision GCP Landing Zone infrastructure using Terraform, enabling multi-project, multi-environment deployments with consistent governance",
-      "Deployed AWS Landing Zone Accelerator for multi-account governance with organization-wide security baselines and compliance guardrails (Typescript CDK)",
-      "Deployed OCI Landing Zone for a client, establishing compartment hierarchy, IAM policies, networking, and security baselines (Terraform)"
+      "Lead enterprise-level budget forecasting and collections strategy across portfolios worth billions in face value, driving data-backed capacity planning for all operational verticals",
+      "Own demand modelling and dial optimization across inbound, outbound, chat, and digital servicing channels, aligning collection targets with compliance and capacity constraints",
+      "Build and maintain financial forecasting models that predict monthly collection targets at granular MOB, stage, vertical, and segment levels with +/-1% accuracy",
+      "Design experiment frameworks for A/B testing collection strategies, measuring uplift in liquidation rates and cost-to-collect across agent cohorts",
+      "Partner with operations, finance, and technology teams to translate analytical insights into actionable workforce and portfolio management decisions"
     ],
-    technologies: ["AWS", "GCP", "OCI", "Kubernetes", "Terraform", "Argo Stack", "Envoy Gateway", "NetBird", "Cloudflare", "GitLab CI"],
-    companyLogo: "https://ollion.com/imgs/logo.svg",
-    companyUrl: "https://ollion.com",
-    companyColor: "#0066CC",
+    technologies: ["Python", "SQL", "Predictive Modeling", "Power BI", "Financial Forecasting", "Experiment Design"],
+    companyLogo: "https://media.licdn.com/dms/image/v2/C560BAQFOvPCqz6MUCA/company-logo_200_200/company-logo_200_200/0/1656522319244?e=2147483647&v=beta&t=placeholder",
+    companyUrl: "https://www.encorecapital.com/",
+    companyColor: "#0056B3",
     isCurrentPosition: true,
     achievements: [
-      "95% cost savings with multi-cloud AI Sandbox Provisioner",
-      "Managed 15+ GKE clusters from a single ArgoCD instance",
-      "Generated $200K+ revenue as sole engineer on 2-year client engagement"
-    ],
-    teamSize: "5-8 engineers"
+      "+/-1% accuracy on annual collection forecasts worth billions",
+      "Optimized capacity planning across all servicing channels",
+      "Led cross-functional analytics strategy for enterprise budgeting"
+    ]
   },
   {
     id: 2,
-    title: "Sr DevOps Engineer",
-    company: "Sugarbox Networks",
-    location: "Mumbai, India",
-    startDate: "February 2021",
-    endDate: "June 2022",
+    title: "Deputy Manager - Strategy Analytics",
+    company: "Encore Capital Group",
+    location: "Gurgaon, India",
+    startDate: "March 2023",
+    endDate: "July 2025",
     description: [
-      "Architected and deployed an on-premises data platform from scratch — 15-node Hadoop cluster, 10-node Kubernetes cluster with Kafka, NiFi, and supporting services, increasing data processing throughput by 60%",
-      "Managed Kubernetes workloads including Airflow and Jupyter with GitOps delivery using Argo CD, implementing OAuth 2.0 SSO for platform-wide access control",
-      "Built HealthD, an automated incident detection system in Python that identified edge failures and auto-created JIRA tickets, reducing mean time to resolution by 70%",
-      "Implemented real-time change data capture using Debezium and Kafka Connect, streaming MySQL events into the data platform for downstream processing"
+      "Built predictive models for agent-case pairing that reduced cost-to-collect by identifying optimal assignment patterns based on tenure, language, and historical performance",
+      "Designed behavioral scoring models to segment accounts by propensity to pay, enabling targeted engagement strategies that improved liquidation rates",
+      "Created automated Power BI dashboards tracking real-time collection performance across 20+ KPIs, replacing manual Excel reporting and saving 15+ hours/week",
+      "Developed account aging and paying-rate curve models used in enterprise budget forecasting across every MOB, vertical, and servicing channel",
+      "Earned Encore Honors Gold Award 2024 and President's Club nomination for predictive collection optimization work"
     ],
-    technologies: ["Kubernetes", "Hadoop", "Apache Kafka", "Argo CD", "Python", "Debezium", "Apache Airflow", "Apache NiFi"],
-    companyLogo: "https://img-cdn.thepublive.com/fit-in/1280x960/filters:format(webp)/entrackr/media/post_attachments/wp-content/uploads/2020/04/SUGARBOX-1.jpg",
-    companyUrl: "https://sugarboxnetworks.com"
+    technologies: ["Python", "SQL", "Machine Learning", "Power BI", "Predictive Modeling", "Behavioral Analytics"],
+    companyLogo: "https://media.licdn.com/dms/image/v2/C560BAQFOvPCqz6MUCA/company-logo_200_200/company-logo_200_200/0/1656522319244?e=2147483647&v=beta&t=placeholder",
+    companyUrl: "https://www.encorecapital.com/",
+    companyColor: "#0056B3",
+    achievements: [
+      "Gold Award 2024 for predictive collection optimization",
+      "President's Club nomination",
+      "Saved 15+ hours/week through dashboard automation"
+    ]
   },
   {
     id: 3,
-    title: "Systems Engineer",
-    company: "Sugarbox Networks",
-    location: "Mumbai, India",
-    startDate: "April 2020",
-    endDate: "February 2021",
+    title: "Business Analyst",
+    company: "GoMechanic",
+    location: "Gurgaon, India",
+    startDate: "June 2022",
+    endDate: "March 2023",
     description: [
-      "Designed and implemented a high-availability monitoring and alerting platform for 200+ edge and CDN nodes using Prometheus, Grafana, and ELK, improving system reliability",
-      "Improved CDN deployment efficiency by 30% by standardizing base configurations with custom Debian OS images",
-      "Developed data ingestion pipelines using Apache NiFi and PySpark for real-time edge telemetry processing",
-      "Automated node provisioning and configuration management across the edge fleet using Ansible and Salt Stack"
+      "Built churn prediction models using logistic regression and deep learning that flagged at-risk customers early enough for targeted retention interventions",
+      "Developed a lead scoring system that prioritized high-conversion prospects, focusing marketing spend where it mattered and improving conversion rates",
+      "Implemented NLP-based sentiment analysis on customer feedback to surface recurring pain points, giving the product team concrete, data-backed issues to fix",
+      "Designed and maintained ETL pipelines feeding real-time customer behavior data into analytical models and dashboards"
     ],
-    technologies: ["Prometheus", "Grafana", "ELK", "Apache NiFi", "PySpark", "Ansible", "Salt Stack", "Debian"],
-    companyLogo: "https://img-cdn.thepublive.com/fit-in/1280x960/filters:format(webp)/entrackr/media/post_attachments/wp-content/uploads/2020/04/SUGARBOX-1.jpg",
-    companyUrl: "https://sugarboxnetworks.com"
+    technologies: ["Python", "Deep Learning", "NLP", "Logistic Regression", "Scikit-learn", "SQL"],
+    companyUrl: "https://www.gomechanic.in/",
+    achievements: [
+      "Improved customer retention through early churn detection",
+      "Optimized marketing spend via lead scoring prioritization"
+    ]
   },
   {
     id: 4,
-    title: "Sr Support Quality Engineer",
-    company: "Alfa Laval",
+    title: "Data Analyst",
+    company: "InfoDeal Technologies",
     location: "Pune, India",
-    startDate: "July 2015",
-    endDate: "April 2020",
+    startDate: "October 2019",
+    endDate: "June 2022",
     description: [
-      "Automated complex data ingestion, processing, and visualization workflows using Microsoft Excel, AccessDB, and Power BI, resulting in 95% of time and cost savings.",
-      "Designed, developed, and manufactured precision mechanical components utilizing diverse manufacturing processes and operations.",
-      "Enhanced manufacturing efficiency by optimizing workflows, tooling, and process parameters, leading to improved productivity and reduced waste.",
-      "Authored detailed Standard Operating Procedures (SOPs) for critical manufacturing processes to ensure consistency, quality, and compliance.",
-      "Provided expert technical guidance to shop floor personnel on advanced machining operations and quality control protocols, enhancing overall process reliability."
+      "Built decision support systems and interactive dashboards that gave stakeholders real-time visibility into key business metrics and conversion funnels",
+      "Designed and executed A/B tests for conversion optimization, measuring statistical significance and translating results into actionable product recommendations",
+      "Developed live monitoring dashboards tracking user engagement, conversion rates, and revenue metrics across multiple product lines",
+      "Created automated reporting pipelines that replaced manual data pulls, improving data freshness and reducing analyst overhead"
     ],
-    technologies: ["Lean Six Sigma", "Manufacturing", "Quality", "Grafana", "Microsoft Excel", "AccessDB", "Power BI"],
-    companyLogo: "https://www.alfalaval.com/ui/css/img/logo-alfalaval.svg",
-    companyUrl: "https://www.alfalaval.com/"
+    technologies: ["Python", "SQL", "Power BI", "A/B Testing", "Dashboard Design", "Statistical Analysis"],
+    companyUrl: "https://www.infodeal.in/",
+    achievements: [
+      "Built real-time decision support systems used by leadership",
+      "Automated reporting pipelines saving hours of manual work"
+    ]
+  },
+  {
+    id: 5,
+    title: "Senior Design Engineer",
+    company: "Larsen & Toubro",
+    location: "Mumbai, India",
+    startDate: "July 2018",
+    endDate: "October 2019",
+    description: [
+      "Applied data-driven approaches to pavement deterioration modelling, using regression analysis to predict infrastructure degradation and optimize maintenance scheduling",
+      "Leveraged analytical methods for transportation engineering projects, combining statistical modelling with domain expertise in civil engineering",
+      "Developed quantitative frameworks for design optimization that reduced material costs while maintaining structural integrity"
+    ],
+    technologies: ["Regression Analysis", "Statistical Modelling", "MATLAB", "AutoCAD", "Data Analysis"],
+    companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/L%26T_logo.svg/1200px-L%26T_logo.svg.png",
+    companyUrl: "https://www.larsentoubro.com/"
   }
-]; 
+];

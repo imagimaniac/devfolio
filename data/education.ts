@@ -9,49 +9,69 @@ export interface Education {
   achievements: string[];
   institutionLogo?: string;
   institutionUrl?: string;
-  // New fields for enhanced design
-  gpa?: string; // Grade point average
-  honors?: string[]; // Academic honors
-  relevantCourses?: string[]; // Key courses
-  projects?: string[]; // Academic projects
-  completionPercentage?: number; // For progress indicator
-  institutionColor?: string; // For theming
+  gpa?: string;
+  honors?: string[];
+  relevantCourses?: string[];
+  projects?: string[];
+  completionPercentage?: number;
+  institutionColor?: string;
 }
 
 export const education: Education[] = [
   {
     id: 1,
-    degree: "Bachelor of Technology in Mechanical Engineering",
-    institution: "Veermata Jijabai Technological Institute",
-    location: "Mumbai, India",
-    startDate: "July 2011",
-    endDate: "May 2015",
+    degree: "Master of Technology - Civil Engineering",
+    institution: "Indian Institute of Technology Kharagpur",
+    location: "Kharagpur, West Bengal",
+    startDate: "June 2016",
+    endDate: "May 2018",
     description: [
-      "Specialized in Mechanical Engineering",
-      "Completed coursework in Thermodynamics, Fluid Mechanics, Machine Design, and Manufacturing Technologies"
+      "Specialized in Transportation Engineering with focus on analytical and statistical modelling",
+      "Applied regression analysis and data-driven methods to infrastructure deterioration prediction",
+      "Developed quantitative research skills that form the foundation of current analytics career"
     ],
     achievements: [
-      "Graduated with First Class Honors",
-      "Completed a capstone project on Automated Manufacturing Systems"
+      "IIT Kharagpur - Premier engineering institute in India",
+      "Research in data-driven infrastructure modelling"
     ],
-    institutionLogo: "https://vjti.ac.in/wp-content/uploads/2024/05/logo-light.gif",
-    institutionUrl: "http://vjti.ac.in/",
-    gpa: "First Class",
-    honors: ["First Class Honors", "Dean's List"],
+    institutionLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/IIT_Kharagpur_Logo.svg/1200px-IIT_Kharagpur_Logo.svg.png",
+    institutionUrl: "https://www.iitkgp.ac.in/",
     relevantCourses: [
-      "Thermodynamics",
-      "Fluid Mechanics", 
-      "Machine Design",
-      "Manufacturing Technologies",
-      "Computer Aided Design",
-      "Materials Science"
-    ],
-    projects: [
-      "Automated Manufacturing Systems - Capstone Project",
-      "Heat Exchanger Design Optimization",
-      "CNC Machine Programming and Operation"
+      "Probability & Statistics",
+      "Regression Analysis",
+      "Transportation Engineering",
+      "Numerical Methods",
+      "Research Methodology",
+      "Operations Research"
     ],
     completionPercentage: 100,
-    institutionColor: "#1E40AF"
+    institutionColor: "#FF6600"
+  },
+  {
+    id: 2,
+    degree: "Bachelor of Technology - Civil Engineering",
+    institution: "College of Engineering Pune (COEP)",
+    location: "Pune, Maharashtra",
+    startDate: "June 2011",
+    endDate: "May 2015",
+    description: [
+      "Undergraduate degree in Civil Engineering from one of the oldest engineering colleges in Asia (established 1854)",
+      "Built strong foundation in mathematics, physics, and engineering problem-solving"
+    ],
+    achievements: [
+      "COEP - One of the oldest engineering colleges in Asia",
+      "Strong foundation in applied mathematics and analytical thinking"
+    ],
+    institutionLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/COEP_Technological_University_logo.png/220px-COEP_Technological_University_logo.png",
+    institutionUrl: "https://www.coep.org.in/",
+    relevantCourses: [
+      "Engineering Mathematics",
+      "Applied Mechanics",
+      "Structural Analysis",
+      "Fluid Mechanics",
+      "Computer Aided Design"
+    ],
+    completionPercentage: 100,
+    institutionColor: "#003366"
   }
 ];

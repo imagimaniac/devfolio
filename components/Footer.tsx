@@ -1,4 +1,3 @@
-import { Socials } from "./ui/Socials";
 import { personalInfo } from '@/data';
 
 const Footer = () => {
@@ -24,9 +23,9 @@ const Footer = () => {
               Crafted with ❤ by  <a
                 className="bg-gradient-to-r from-electricBlue-light via-electricBlue to-circuitGreen bg-clip-text text-transparent font-extrabold hover:scale-105 inline-block transition-transform duration-200"
                 target="_blank"
-                href="https://cloudpoet.in"
+                href={`https://github.com/${personalInfo.github}`}
               >
-                Bhushan Rane.
+                Pratik Gajanan.
               </a>
             </p>
           </div>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="64" height="64">
+  <g fill="none" stroke-width="4">
+    <line x1="64" y1="8" x2="64" y2="36" stroke="#E97627"/>
+    <line x1="50" y1="22" x2="78" y2="22" stroke="#E97627"/>
+    <line x1="32" y1="36" x2="32" y2="60" stroke="#C72037"/>
+    <line x1="20" y1="48" x2="44" y2="48" stroke="#C72037"/>
+    <line x1="96" y1="36" x2="96" y2="60" stroke="#5B879B"/>
+    <line x1="84" y1="48" x2="108" y2="48" stroke="#5B879B"/>
+    <line x1="64" y1="44" x2="64" y2="84" stroke="#E97627" stroke-width="5"/>
+    <line x1="44" y1="64" x2="84" y2="64" stroke="#E97627" stroke-width="5"/>
+    <line x1="32" y1="72" x2="32" y2="96" stroke="#5B879B"/>
+    <line x1="20" y1="84" x2="44" y2="84" stroke="#5B879B"/>
+    <line x1="96" y1="72" x2="96" y2="96" stroke="#C72037"/>
+    <line x1="84" y1="84" x2="108" y2="84" stroke="#C72037"/>
+    <line x1="64" y1="92" x2="64" y2="120" stroke="#E97627"/>
+    <line x1="50" y1="106" x2="78" y2="106" stroke="#E97627"/>
+  </g>
+</svg>

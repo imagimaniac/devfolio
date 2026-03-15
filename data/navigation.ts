@@ -5,8 +5,8 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
-  { name: "Certifications", link: "#certifications" },
+  { name: "Projects", link: "#projects" },
+  { name: "Education", link: "#education" },
   { name: "Contact", link: "#contact" },
-]; 
+];

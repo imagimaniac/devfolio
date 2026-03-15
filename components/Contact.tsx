@@ -14,15 +14,25 @@ const Contact = () => {
           </h2>
         </Reveal>
         <p className="max-w-[700px] mt-10 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          {"Let's collaborate on your next project!"}
+          {"Let\u2019s collaborate on data-driven solutions."}
         </p>
-        <p className="max-w-[700px] mt-10 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+        <p className="max-w-[700px] mt-6 text-gray-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+          <span className="text-electricBlue font-mono">{personalInfo.phone}</span>
+        </p>
+        <p className="max-w-[700px] mt-4 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
           Check out my work on <a
             className="text-steelGray-light font-extrabold hover:text-brushedAluminum transition-colors duration-200"
             target="_blank"
             href={`https://github.com/${personalInfo.github}`}
           >
             GitHub
+          </a>
+          {" "}and <a
+            className="text-steelGray-light font-extrabold hover:text-brushedAluminum transition-colors duration-200"
+            target="_blank"
+            href={`https://www.kaggle.com/${personalInfo.kaggle}`}
+          >
+            Kaggle
           </a>
         </p>
 
