@@ -1,77 +1,43 @@
+"use client";
+
 import React, { useState } from "react";
-import { experience, education } from "@/data";
+import { experience } from "@/data";
 import Reveal from "./ui/Reveal";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// Mini navigation tab component
-const TabButton = ({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) => (
-  <button
-    onClick={onClick}
-    className={cn(
-      "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
-      active
-        ? "bg-gradient-to-r from-circuitGreen to-electricBlue text-white shadow-lg"
-        : "bg-black/30 text-gray-400 hover:text-white hover:bg-black/50 border border-white/10"
-    )}
-  >
-    {children}
-  </button>
-);
-
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState<'experience' | 'education'>('experience');
-  const [expandedItems, setExpandedItems] = useState<number[]>([]);
+  const [expandedKeywords, setExpandedKeywords] = useState<Record<number, string[]>>({});
 
-  // Get the appropriate data based on the active tab
-  const items = activeTab === 'experience' ? experience : education;
-
-  // Toggle expanded state for an item
-  const toggleExpand = (id: number) => {
-    setExpandedItems(prev =>
-      prev.includes(id) ? prev.filter(itemId => itemId !== id) : [...prev, id]
-    );
+  const toggleKeyword = (itemId: number, keywordTitle: string) => {
+    setExpandedKeywords(prev => {
+      const current = prev[itemId] || [];
+      if (current.includes(keywordTitle)) {
+        return { ...prev, [itemId]: current.filter(k => k !== keywordTitle) };
+      }
+      return { ...prev, [itemId]: [...current, keywordTitle] };
+    });
   };
 
   return (
     <section id="experience" className="w-full py-20">
-      {/* Invisible anchor for Education nav link */}
-      <div id="education" className="absolute -mt-20" />
       <div className="container mx-auto px-4">
         <Reveal>
           <h3 className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl font-semibold">
-            My{" "}
+            Where I{" "}
             <span className="bg-gradient-to-r from-circuitGreen to-electricBlue bg-clip-text text-transparent">
-              {activeTab === 'experience' ? 'Experience' : 'Education'}
+              moved
             </span>
+            {"'"}the needle.
           </h3>
         </Reveal>
 
-        {/* Mini navigation bar */}
-        <div className="flex justify-center gap-4 mb-12">
-          <TabButton
-            active={activeTab === 'experience'}
-            onClick={() => setActiveTab('experience')}
-          >
-            Work Experience
-          </TabButton>
-          <TabButton
-            active={activeTab === 'education'}
-            onClick={() => setActiveTab('education')}
-          >
-            Education
-          </TabButton>
-        </div>
-
         <div className="relative max-w-4xl mx-auto">
-          {/* Main timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electricBlue via-circuitGreen to-electricBlue h-full transform md:-translate-x-px"></div>
+          {/* Timeline line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-electricBlue via-circuitGreen to-electricBlue h-full transform md:-translate-x-px" />
 
-
-
-          {/* Timeline items */}
-          {items.map((item, index) => (
+          {experience.map((item, index) => (
             <div key={item.id} className="mb-16 relative">
               {/* Timeline dot */}
               <motion.div
@@ -81,7 +47,6 @@ const Experience = () => {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                {/* Inner dot */}
                 <motion.div
                   className={`absolute inset-0 m-auto w-2 h-2 rounded-full ${index === 0 ? 'bg-electricBlue' : 'bg-circuitGreen'}`}
                   initial={{ scale: 0 }}
@@ -89,8 +54,6 @@ const Experience = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
                 />
-
-                {/* Pulsing effect for current position */}
                 {index === 0 && (
                   <motion.div
                     className="absolute -inset-1 rounded-full border border-electricBlue opacity-50"
@@ -100,186 +63,116 @@ const Experience = () => {
                 )}
               </motion.div>
 
-              {/* Horizontal connector line */}
-              <div className="hidden md:block absolute h-px bg-gradient-to-r from-electricBlue to-transparent w-8 top-0 z-0"
-                style={{
-                  left: index % 2 === 0 ? '50%' : 'auto',
-                  right: index % 2 === 0 ? 'auto' : '50%',
-                  transform: 'translateY(-50%)'
-                }}
-              />
-
-              {/* Content container */}
+              {/* Content */}
               <div className="ml-8 md:ml-0 md:grid md:grid-cols-2 md:gap-8 relative">
-                {/* Date - visible on mobile, hidden on desktop for odd items */}
+                {/* Left side: Company, Title, Date */}
                 <div className={`md:text-right mb-4 md:mb-0 md:pr-12 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                   <div className="inline-block md:block">
-                    <span className="text-electricBlue font-mono text-sm md:text-base">
+                    <span className="text-electricBlue font-mono text-sm">
                       {item.startDate} - {item.endDate}
                     </span>
                     <h4 className="text-xl font-semibold text-white mt-1">
-                      {activeTab === 'experience'
-                        ? (item as typeof experience[0]).title
-                        : (item as typeof education[0]).degree
-                      }
+                      {item.title}
                     </h4>
-                    {/* Logo and Institution/Company Name */}
-                    <div className="flex flex-col items-start mt-2 gap-3">
-                      {/* Logo - Much larger and more visible */}
-                      {activeTab === 'experience' && (item as typeof experience[0]).companyLogo ? (
-                        <a
-                          href={(item as typeof experience[0]).companyUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block w-16 h-16 rounded-md overflow-hidden border border-white/20 hover:border-electricBlue/50 transition-all duration-300"
-                        >
-                          <div className="relative w-full h-full bg-white/10 hover:bg-white/20 transition-all duration-300">
-                            <Image
-                              src={(item as typeof experience[0]).companyLogo!}
-                              alt="Company Logo"
-                              className="object-contain p-2"
-                              fill
-                              sizes="64px"
-                              priority={true}
-                              unoptimized={true}
-                            />
-                          </div>
-                        </a>
-                      ) : activeTab === 'education' && (item as typeof education[0]).institutionLogo ? (
-                        <a
-                          href={(item as typeof education[0]).institutionUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block w-20 h-20 rounded-md overflow-hidden border border-white/20 hover:border-electricBlue/50 transition-all duration-300"
-                        >
-                          <div className="relative w-full h-full bg-white/15 hover:bg-white/25 transition-all duration-300">
-                            <Image
-                              src={(item as typeof education[0]).institutionLogo!}
-                              alt="Institution Logo"
-                              className="object-contain p-2"
-                              fill
-                              sizes="80px"
-                              priority={true}
-                              unoptimized={true}
-                            />
-                          </div>
-                        </a>
-                      ) : null}
-                    </div>
-                    <div>
-                      <h5 className="text-lg font-medium text-electricBlue">
-                        {activeTab === 'experience'
-                          ? (item as typeof experience[0]).company
-                          : (item as typeof education[0]).institution
-                        }
-                      </h5>
-                      <p className="text-sm text-gray-400">{item.location}</p>
-                    </div>
+                    {item.companyLogo && (
+                      <a
+                        href={item.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block w-12 h-12 rounded-md overflow-hidden border border-white/20 hover:border-electricBlue/50 transition-all duration-300 mt-2"
+                      >
+                        <div className="relative w-full h-full bg-white/10">
+                          <Image
+                            src={item.companyLogo}
+                            alt={item.company}
+                            className="object-contain p-1"
+                            fill
+                            sizes="48px"
+                            unoptimized
+                          />
+                        </div>
+                      </a>
+                    )}
+                    <h5 className="text-lg font-medium text-electricBlue mt-2">
+                      {item.company}
+                    </h5>
+                    <p className="text-sm text-gray-400">{item.location}</p>
                   </div>
                 </div>
 
-                {/* Content card - with preserved background animation */}
+                {/* Right side: Keyword chips + tech tags */}
                 <motion.div
-                  className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm group hover:border-electricBlue/30 hover:shadow-lg transition-all duration-300 ${index % 2 !== 0 ? 'md:order-1' : ''}`}
+                  className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm group ${index % 2 !== 0 ? 'md:order-1' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  whileHover={{ y: -5 }}
                 >
-                  {/* Background animation */}
-                  <div className="absolute inset-0 w-full h-full">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src="https://i.pinimg.com/originals/be/f4/1a/bef41a7d5a877841bbf7d8f9f0d42f14.gif"
-                        alt={`Background for ${activeTab === 'experience' ? (item as typeof experience[0]).title : (item as typeof education[0]).degree}`}
-                        className="object-cover object-center opacity-15 transition-opacity duration-300 group-hover:opacity-25"
-                        fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority={false}
-                        unoptimized={true}
-                      />
-                    </div>
+                  <div className="absolute inset-0 -z-10">
+                    <Image
+                      src="https://i.pinimg.com/originals/be/f4/1a/bef41a7d5a877841bbf7d8f9f0d42f14.gif"
+                      alt="Background"
+                      className="object-cover opacity-15"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      unoptimized
+                    />
                   </div>
 
-                  {/* Content */}
-                  <div className="relative p-4 z-10 transition-transform duration-300 group-hover:translate-x-1">
-                    {/* Description items with Show More/Less toggle */}
-                    <ul className="list-disc list-inside space-y-1 text-gray-300">
-                      {(expandedItems.includes(item.id)
-                        ? item.description
-                        : item.description.slice(0, 3)
-                      ).map((desc: string, idx: number) => (
-                        <li key={idx} className="text-xs">{desc}</li>
-                      ))}
-                    </ul>
-
-                    {/* Show More/Less button */}
-                    {item.description.length > 3 && (
-                      <button
-                        onClick={() => toggleExpand(item.id)}
-                        className="mt-2 text-xs text-electricBlue hover:text-circuitGreen transition-colors duration-200 flex items-center gap-1"
-                      >
-                        {expandedItems.includes(item.id) ? (
-                          <>
-                            Show Less
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                            </svg>
-                          </>
-                        ) : (
-                          <>
-                            Show More
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </>
-                        )}
-                      </button>
-                    )}
-
-                    {activeTab === 'experience' && (item as typeof experience[0]).technologies && (item as typeof experience[0]).technologies.length > 0 && (
-                      <div className="mt-3 pt-3 border-t border-white/10">
-                        <div className="flex flex-wrap gap-1">
-                          {expandedItems.includes(item.id)
-                            ? (item as typeof experience[0]).technologies.map((tech: string, idx: number) => (
-                                <span
-                                  key={idx}
-                                  className="px-1.5 py-0.5 text-xs font-medium bg-black/50 text-electricBlue border border-electricBlue/20 rounded-full"
+                  <div className="relative p-4 space-y-3">
+                    {/* Keyword chips - each expandable */}
+                    <div className="flex flex-wrap gap-2">
+                      {item.description.map((desc, idx) => {
+                        const isExpanded = expandedKeywords[item.id]?.includes(desc.title);
+                        return (
+                          <div key={idx} className="w-full">
+                            <button
+                              onClick={() => toggleKeyword(item.id, desc.title)}
+                              className={cn(
+                                "w-full text-left px-3 py-2 rounded-lg border transition-all duration-200 flex items-center justify-between gap-2",
+                                isExpanded
+                                  ? "bg-electricBlue/20 border-electricBlue text-electricBlue"
+                                  : "bg-black/50 border-white/10 text-gray-300 hover:border-white/30 hover:text-white"
+                              )}
+                            >
+                              <span className="text-sm font-medium">{desc.title}</span>
+                              <span className="text-xs opacity-60">
+                                {isExpanded ? "▾" : "▸"}
+                              </span>
+                            </button>
+                            <AnimatePresence>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: "auto" }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.2 }}
+                                  className="mt-1 pl-3 py-2"
                                 >
-                                  {tech}
-                                </span>
-                              ))
-                            : (
-                              <>
-                                {(item as typeof experience[0]).technologies.slice(0, 6).map((tech: string, idx: number) => (
-                                  <span
-                                    key={idx}
-                                    className="px-1.5 py-0.5 text-xs font-medium bg-black/50 text-electricBlue border border-electricBlue/20 rounded-full"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                                {(item as typeof experience[0]).technologies.length > 6 && !expandedItems.includes(item.id) && (
-                                  <span className="px-1.5 py-0.5 text-xs font-medium bg-black/50 text-gray-400 border border-white/10 rounded-full">
-                                    +{(item as typeof experience[0]).technologies.length - 6} more
-                                  </span>
-                                )}
-                              </>
-                            )
-                          }
-                        </div>
-                      </div>
-                    )}
+                                  <p className="text-xs text-gray-400 leading-relaxed">
+                                    {desc.detail}
+                                  </p>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        );
+                      })}
+                    </div>
 
-                    {activeTab === 'education' && (item as typeof education[0]).achievements && (item as typeof education[0]).achievements.length > 0 && (
-                      <div className="mt-3 pt-3 border-t border-white/10">
-                        <h6 className="text-xs font-medium text-electricBlue mb-1">Achievements</h6>
-                        <ul className="list-disc list-inside space-y-1 text-gray-300">
-                          {(item as typeof education[0]).achievements.map((achievement: string, idx: number) => (
-                            <li key={idx} className="text-xs">{achievement}</li>
+                    {/* Tech tags */}
+                    {item.technologies && item.technologies.length > 0 && (
+                      <div className="pt-3 border-t border-white/10">
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.technologies.map((tech, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[10px] px-2 py-0.5 rounded-full bg-black/50 text-electricBlue border border-electricBlue/20"
+                            >
+                              {tech}
+                            </span>
                           ))}
-                        </ul>
+                        </div>
                       </div>
                     )}
                   </div>

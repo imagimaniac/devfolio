@@ -1,3 +1,8 @@
+export interface ExperienceDescription {
+  title: string;
+  detail: string;
+}
+
 export interface Experience {
   id: number;
   title: string;
@@ -5,7 +10,7 @@ export interface Experience {
   location: string;
   startDate: string;
   endDate: string;
-  description: string[];
+  description: ExperienceDescription[];
   technologies: string[];
   companyLogo?: string;
   companyUrl?: string;
@@ -24,11 +29,26 @@ export const experience: Experience[] = [
     startDate: "July 2025",
     endDate: "Present",
     description: [
-      "Lead enterprise-level budget forecasting and collections strategy across portfolios worth billions in face value, driving data-backed capacity planning for all operational verticals",
-      "Own demand modelling and dial optimization across inbound, outbound, chat, and digital servicing channels, aligning collection targets with compliance and capacity constraints",
-      "Build and maintain financial forecasting models that predict monthly collection targets at granular MOB, stage, vertical, and segment levels with +/-1% accuracy",
-      "Design experiment frameworks for A/B testing collection strategies, measuring uplift in liquidation rates and cost-to-collect across agent cohorts",
-      "Partner with operations, finance, and technology teams to translate analytical insights into actionable workforce and portfolio management decisions"
+      {
+        title: "Budget Forecasting",
+        detail: "Lead enterprise-level budget forecasting and collections strategy across portfolios worth billions in face value, driving data-backed capacity planning for all operational verticals"
+      },
+      {
+        title: "Demand Modelling",
+        detail: "Own demand modelling and dial optimization across inbound, outbound, chat, and digital servicing channels, aligning collection targets with compliance and capacity constraints"
+      },
+      {
+        title: "Collection Prediction",
+        detail: "Build and maintain financial forecasting models that predict monthly collection targets at granular MOB, stage, vertical, and segment levels with +/-1% accuracy"
+      },
+      {
+        title: "Experiment Design",
+        detail: "Design experiment frameworks for A/B testing collection strategies, measuring uplift in liquidation rates and cost-to-collect across agent cohorts"
+      },
+      {
+        title: "Cross-functional Strategy",
+        detail: "Partner with operations, finance, and technology teams to translate analytical insights into actionable workforce and portfolio management decisions"
+      }
     ],
     technologies: ["Python", "SQL", "Predictive Modeling", "Power BI", "Financial Forecasting", "Experiment Design"],
     companyLogo: "https://media.licdn.com/dms/image/v2/C560BAQFOvPCqz6MUCA/company-logo_200_200/company-logo_200_200/0/1656522319244?e=2147483647&v=beta&t=placeholder",
@@ -49,11 +69,26 @@ export const experience: Experience[] = [
     startDate: "March 2023",
     endDate: "July 2025",
     description: [
-      "Built predictive models for agent-case pairing that reduced cost-to-collect by identifying optimal assignment patterns based on tenure, language, and historical performance",
-      "Designed behavioral scoring models to segment accounts by propensity to pay, enabling targeted engagement strategies that improved liquidation rates",
-      "Created automated Power BI dashboards tracking real-time collection performance across 20+ KPIs, replacing manual Excel reporting and saving 15+ hours/week",
-      "Developed account aging and paying-rate curve models used in enterprise budget forecasting across every MOB, vertical, and servicing channel",
-      "Earned Encore Honors Gold Award 2024 and President's Club nomination for predictive collection optimization work"
+      {
+        title: "Predictive Pairing",
+        detail: "Built predictive models for agent-case pairing that reduced cost-to-collect by identifying optimal assignment patterns based on tenure, language, and historical performance"
+      },
+      {
+        title: "Behavioral Scoring",
+        detail: "Designed behavioral scoring models to segment accounts by propensity to pay, enabling targeted engagement strategies that improved liquidation rates"
+      },
+      {
+        title: "Dashboard Automation",
+        detail: "Created automated Power BI dashboards tracking real-time collection performance across 20+ KPIs, replacing manual Excel reporting and saving 15+ hours/week"
+      },
+      {
+        title: "Aging & Rate Curves",
+        detail: "Developed account aging and paying-rate curve models used in enterprise budget forecasting across every MOB, vertical, and servicing channel"
+      },
+      {
+        title: "Gold Award 2024",
+        detail: "Earned Encore Honors Gold Award 2024 and President's Club nomination for predictive collection optimization work"
+      }
     ],
     technologies: ["Python", "SQL", "Machine Learning", "Power BI", "Predictive Modeling", "Behavioral Analytics"],
     companyLogo: "https://media.licdn.com/dms/image/v2/C560BAQFOvPCqz6MUCA/company-logo_200_200/company-logo_200_200/0/1656522319244?e=2147483647&v=beta&t=placeholder",
@@ -73,10 +108,22 @@ export const experience: Experience[] = [
     startDate: "June 2022",
     endDate: "March 2023",
     description: [
-      "Built churn prediction models using logistic regression and deep learning that flagged at-risk customers early enough for targeted retention interventions",
-      "Developed a lead scoring system that prioritized high-conversion prospects, focusing marketing spend where it mattered and improving conversion rates",
-      "Implemented NLP-based sentiment analysis on customer feedback to surface recurring pain points, giving the product team concrete, data-backed issues to fix",
-      "Designed and maintained ETL pipelines feeding real-time customer behavior data into analytical models and dashboards"
+      {
+        title: "Churn Prediction",
+        detail: "Built churn prediction models using logistic regression and deep learning that flagged at-risk customers early enough for targeted retention interventions"
+      },
+      {
+        title: "Lead Scoring",
+        detail: "Developed a lead scoring system that prioritized high-conversion prospects, focusing marketing spend where it mattered and improving conversion rates"
+      },
+      {
+        title: "Sentiment Mining",
+        detail: "Implemented NLP-based sentiment analysis on customer feedback to surface recurring pain points, giving the product team concrete, data-backed issues to fix"
+      },
+      {
+        title: "Data Pipelines",
+        detail: "Designed and maintained ETL pipelines feeding real-time customer behavior data into analytical models and dashboards"
+      }
     ],
     technologies: ["Python", "Deep Learning", "NLP", "Logistic Regression", "Scikit-learn", "SQL"],
     companyUrl: "https://www.gomechanic.in/",
@@ -93,10 +140,22 @@ export const experience: Experience[] = [
     startDate: "October 2019",
     endDate: "June 2022",
     description: [
-      "Built decision support systems and interactive dashboards that gave stakeholders real-time visibility into key business metrics and conversion funnels",
-      "Designed and executed A/B tests for conversion optimization, measuring statistical significance and translating results into actionable product recommendations",
-      "Developed live monitoring dashboards tracking user engagement, conversion rates, and revenue metrics across multiple product lines",
-      "Created automated reporting pipelines that replaced manual data pulls, improving data freshness and reducing analyst overhead"
+      {
+        title: "Decision Support",
+        detail: "Built decision support systems and interactive dashboards that gave stakeholders real-time visibility into key business metrics and conversion funnels"
+      },
+      {
+        title: "A/B Testing",
+        detail: "Designed and executed A/B tests for conversion optimization, measuring statistical significance and translating results into actionable product recommendations"
+      },
+      {
+        title: "Live Monitoring",
+        detail: "Developed live monitoring dashboards tracking user engagement, conversion rates, and revenue metrics across multiple product lines"
+      },
+      {
+        title: "Reporting Automation",
+        detail: "Created automated reporting pipelines that replaced manual data pulls, improving data freshness and reducing analyst overhead"
+      }
     ],
     technologies: ["Python", "SQL", "Power BI", "A/B Testing", "Dashboard Design", "Statistical Analysis"],
     companyUrl: "https://www.infodeal.in/",
@@ -113,9 +172,18 @@ export const experience: Experience[] = [
     startDate: "July 2018",
     endDate: "October 2019",
     description: [
-      "Applied data-driven approaches to pavement deterioration modelling, using regression analysis to predict infrastructure degradation and optimize maintenance scheduling",
-      "Leveraged analytical methods for transportation engineering projects, combining statistical modelling with domain expertise in civil engineering",
-      "Developed quantitative frameworks for design optimization that reduced material costs while maintaining structural integrity"
+      {
+        title: "Deterioration Modelling",
+        detail: "Applied data-driven approaches to pavement deterioration modelling, using regression analysis to predict infrastructure degradation and optimize maintenance scheduling"
+      },
+      {
+        title: "Transportation Analytics",
+        detail: "Leveraged analytical methods for transportation engineering projects, combining statistical modelling with domain expertise in civil engineering"
+      },
+      {
+        title: "Design Optimization",
+        detail: "Developed quantitative frameworks for design optimization that reduced material costs while maintaining structural integrity"
+      }
     ],
     technologies: ["Regression Analysis", "Statistical Modelling", "MATLAB", "AutoCAD", "Data Analysis"],
     companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/L%26T_logo.svg/1200px-L%26T_logo.svg.png",
