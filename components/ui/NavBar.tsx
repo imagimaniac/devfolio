@@ -22,7 +22,7 @@ const NavBar = (): JSX.Element => {
   const [isZenButtonHovered, setIsZenButtonHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { zenMode, toggleZenMode } = useZenMode();
+  const { zenMode, zenGame, toggleZenMode, setZenGame } = useZenMode();
 
   // Memoize observer options
   const observerOptions = useMemo(() => ({
@@ -85,7 +85,7 @@ const NavBar = (): JSX.Element => {
   // Memoize handleDownloadCV
   const handleDownloadCV = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "assets/CV.pdf";
+    link.href = "/assets/PratikG_Resume20Mar.pdf";
     link.download = "Pratik-Gajanan-CV.pdf";
     link.click();
   }, []);
@@ -193,21 +193,30 @@ const NavBar = (): JSX.Element => {
           
           {/* Right side buttons */}
           <div className="flex items-center space-x-4">
-            {/* Reset Game Button - only visible in zen mode */}
-            {zenMode && (
-              <button
-                onClick={() => {
-                  // Reset the game directly
-                  if ((window as any).resetZenGame) {
-                    (window as any).resetZenGame();
-                  }
-                }}
-                className="flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
-                aria-label="Reset Game"
-              >
-                <span className="text-lg">🔄</span>
-                <span className="hidden sm:inline">Reset</span>
-              </button>
+            {/* Zen Mode game buttons - only visible in zen mode */}
+            {zenMode && zenGame && (
+              <>
+                <button
+                  onClick={() => setZenGame(null)}
+                  className="flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  aria-label="Change Game"
+                >
+                  <span className="text-lg">🎮</span>
+                  <span className="hidden sm:inline">Games</span>
+                </button>
+                <button
+                  onClick={() => {
+                    if ((window as any).resetZenGame) {
+                      (window as any).resetZenGame();
+                    }
+                  }}
+                  className="flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  aria-label="Reset Game"
+                >
+                  <span className="text-lg">🔄</span>
+                  <span className="hidden sm:inline">Reset</span>
+                </button>
+              </>
             )}
             
             {/* Zen mode toggle */}
@@ -269,8 +278,8 @@ const NavBar = (): JSX.Element => {
               className={cn(
                 "flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-3 py-2",
                 isButtonHovered 
-                  ? "bg-primary/10 text-primary" 
-                  : "text-primary hover:text-primary/80"
+                  ? "bg-yellow-400/20 text-yellow-400" 
+                  : "text-yellow-400 hover:text-yellow-300"
               )}
             >
               <Download className="h-4 w-4" />
