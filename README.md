@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Animated%20with-Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-**[✨ Live Site](https://cloudpoet.in/) • [🔍 Source Code](https://github.com/drtinkerer/devfolio)
+**[✨ Live Site](https://devfolio-mauve-six.vercel.app/) • [🔍 Source Code](https://github.com/drtinkerer/devfolio)
 
 </div>
 
@@ -245,3 +245,73 @@ Feel free to check the [issues page](https://github.com/drtinkerer/devfolio/issu
 ## 💫 Show your support
 
 Give a ⭐️ if you like this project!
+
+---
+
+## 🤖 PortfolioBot - AI Chatbot
+
+This portfolio includes an AI-powered chatbot that acts as your digital twin, answering questions about you in a natural, conversational way.
+
+### Features
+
+- **Natural Conversations**: Chat about skills, experience, and achievements
+- **Privacy Protected**: Automatically blocks salary/financial questions
+- **Zero-Cost**: Deploys free on Hugging Face Spaces
+- **RAG-Powered**: Uses TF-IDF retrieval for accurate responses
+
+### Live Demo
+
+Chat with the bot directly on the portfolio website - scroll to "Meet [Your Name]'s Twin" section!
+
+### Technical Stack
+
+| Component | Technology |
+|-----------|------------|
+| UI | Streamlit |
+| AI Model | Meta Llama 3.2 1B |
+| Vector Search | TF-IDF (scikit-learn) |
+| Hosting | Hugging Face Spaces |
+
+### Documentation
+
+- [Overview](chatbot-docs/README.md) - Quick start and features
+- [Setup Guide](chatbot-docs/SETUP.md) - Local development
+- [Deployment](chatbot-docs/DEPLOYMENT.md) - Hugging Face Spaces
+- [Customization](chatbot-docs/CUSTOMIZATION.md) - Personalize for yourself
+- [Architecture](chatbot-docs/ARCHITECTURE.md) - System design
+
+### Quick Setup
+
+```bash
+cd chatbot
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+### Project Structure
+
+```
+├── chatbot/              # AI Chatbot source code
+│   ├── app.py           # Main Streamlit application
+│   ├── requirements.txt # Dependencies
+│   ├── security_config.py # Privacy rules
+│   └── knowledge-base/  # Your information (customize this!)
+│
+├── chatbot-docs/        # Comprehensive documentation
+│   ├── README.md       # Overview
+│   ├── ARCHITECTURE.md # System design
+│   ├── SETUP.md       # Local setup
+│   ├── DEPLOYMENT.md  # HF Spaces deployment
+│   └── CUSTOMIZATION.md # Personalization guide
+│
+└── components/          # Website React components
+    └── ChatbotWidget.tsx # Website integration
+```
+
+### Privacy Note
+
+The public version of this chatbot uses placeholder contact info (YOUR_EMAIL, YOUR_PHONE). To use your real information, see [CUSTOMIZATION.md](chatbot-docs/CUSTOMIZATION.md).
+
+### Contributing
+
+The chatbot is designed to be customized for your own portfolio. Fork the repository and follow the customization guide to make it your own!
