@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/ui/NavBar";
 import BackgroundPatterns from "@/components/ui/BackgroundPatterns";
+
 import { motion } from "framer-motion";
 import { useZenMode } from "@/lib/ZenModeContext";
 

@@ -42,29 +42,13 @@ const About = memo(() => {
         </h3>
       </Reveal>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex flex-col gap-6">
         {/* About Me Card */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 backdrop-blur-sm p-8 flex flex-col min-h-[280px]">
-          <div className="absolute inset-0 -z-10">
-            <div className="relative w-full h-full">
-              <Image 
-                src="https://i.pinimg.com/originals/be/f4/1a/bef41a7d5a877841bbf7d8f9f0d42f14.gif" 
-                alt="Background animation"
-                className="object-cover opacity-30"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority={false}
-                loading="lazy"
-                unoptimized={true}
-              />
-            </div>
-            <div className="absolute inset-0 bg-black/50"></div>
-          </div>
-          
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 backdrop-blur-sm p-8 flex flex-col min-h-[200px]">
           {/* Content */}
           <div className="relative z-10 flex-1 flex flex-col">
-            <div className="flex items-start justify-between gap-4">
-              <p className="text-white font-medium text-lg leading-relaxed">
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-white font-medium text-xl md:text-2xl leading-relaxed text-center">
                 {shortBio}
               </p>
               <InfoButton onClick={() => setShowFullBio(!showFullBio)} isOpen={showFullBio} />
@@ -92,21 +76,6 @@ const About = memo(() => {
         
         {/* Skills Word Cloud Card */}
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 backdrop-blur-sm p-8">
-          <div className="absolute inset-0 -z-10">
-            <div className="relative w-full h-full">
-              <Image 
-                src="https://i.pinimg.com/originals/84/f6/d1/84f6d14f1f88d34d3956150d19060d3a.gif" 
-                alt="Background animation"
-                className="object-cover opacity-30"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority={false}
-                unoptimized={true}
-              />
-            </div>
-            <div className="absolute inset-0 bg-black/50"></div>
-          </div>
-          
           <div className="relative z-10">
             <SkillsWordCloud />
           </div>

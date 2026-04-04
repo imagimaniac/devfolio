@@ -36,13 +36,6 @@ yarn-error.log*
 next-env.d.ts
 yarn.lock
 
-# Chatbot
-chatbot/knowledge-base/
-chatbot/.env
-chatbot/venv/
-chatbot/__pycache__/
-chatbot/*.pyc
-
 # Python
 __pycache__/
 *.py[cod]

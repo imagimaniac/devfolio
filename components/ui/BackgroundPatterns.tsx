@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Image from "next/image";
 import React from "react";
 import { useZenMode } from "@/lib/ZenModeContext";
-import ZenSpaceShooter from "./ZenSpaceShooter";
+import ZenAsteroids from "./games/ZenAsteroids";
 import InteractiveTechIcon from "./InteractiveTechIcon";
 
 // Static data moved outside component for performance - memoized once
@@ -1173,8 +1173,8 @@ const BackgroundPatterns = () => {
         </div>
       </div>
 
-      {/* Zen Space Shooter Game */}
-      <ZenSpaceShooter 
+      {/* Zen Mode Game */}
+      <ZenAsteroids
         techIcons={techIcons}
         onIconDestroy={handleIconDestroy}
         onResetGame={handleResetGame}

@@ -22,7 +22,7 @@ const NavBar = (): JSX.Element => {
   const [isZenButtonHovered, setIsZenButtonHovered] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { zenMode, zenGame, toggleZenMode, setZenGame } = useZenMode();
+  const { zenMode, toggleZenMode } = useZenMode();
 
   // Memoize observer options
   const observerOptions = useMemo(() => ({
@@ -193,32 +193,6 @@ const NavBar = (): JSX.Element => {
           
           {/* Right side buttons */}
           <div className="flex items-center space-x-4">
-            {/* Zen Mode game buttons - only visible in zen mode */}
-            {zenMode && zenGame && (
-              <>
-                <button
-                  onClick={() => setZenGame(null)}
-                  className="flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  aria-label="Change Game"
-                >
-                  <span className="text-lg">🎮</span>
-                  <span className="hidden sm:inline">Games</span>
-                </button>
-                <button
-                  onClick={() => {
-                    if ((window as any).resetZenGame) {
-                      (window as any).resetZenGame();
-                    }
-                  }}
-                  className="flex items-center space-x-2 text-sm font-medium transition-all duration-300 rounded-full px-4 py-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  aria-label="Reset Game"
-                >
-                  <span className="text-lg">🔄</span>
-                  <span className="hidden sm:inline">Reset</span>
-                </button>
-              </>
-            )}
-            
             {/* Zen mode toggle */}
             <button
               onClick={toggleZenMode}

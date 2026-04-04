@@ -77,7 +77,7 @@ const Education = () => {
                         <Image
                           src={edu.institutionLogo}
                           alt={edu.institution}
-                          className="object-contain p-1 bg-white/10"
+                          className="object-contain p-1 bg-white"
                           fill
                           sizes="56px"
                           unoptimized

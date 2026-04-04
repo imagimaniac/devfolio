@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 
 type ZenModeContextType = {
   zenMode: boolean;
@@ -12,9 +12,9 @@ const ZenModeContext = createContext<ZenModeContextType | undefined>(undefined);
 export function ZenModeProvider({ children }: { children: ReactNode }) {
   const [zenMode, setZenMode] = useState(false);
 
-  const toggleZenMode = () => {
+  const toggleZenMode = useCallback(() => {
     setZenMode((prev) => !prev);
-  };
+  }, []);
 
   return (
     <ZenModeContext.Provider value={{ zenMode, toggleZenMode }}>

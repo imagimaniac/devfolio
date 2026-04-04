@@ -96,19 +96,5 @@ export const projects: Project[] = [
     objective: "Build a personal automation ecosystem that orchestrates multiple AI agents across daily workflows to maximize productivity. The system needed to handle job portal updates, email management, knowledge retrieval, and development assistance while running entirely on local infrastructure with zero recurring cost.",
     action: "Orchestrated 4 local LLMs (Ollama) and 3 cloud models (Gemini, GPT-4, Claude) through a unified agent framework. Built WhatsApp-connected AI assistant with persistent memory for instant Q&A. Implemented automated job portal scraper running 13x daily with smart filtering. Created AI-bridged knowledge management system using vector databases. Integrated Playwright for browser automation and OpenClaw for enhanced AI interactions.",
     result: "Saved 1,000+ hours annually through automation. Job search efficiency improved 10x with automated portal monitoring. Development workflow accelerated through AI-assisted coding assistants. Email triage reduced daily management time by 45 minutes. All running on personal hardware with zero subscription costs."
-  },
-  {
-    id: 7,
-    title: "PortfolioBot - AI Portfolio Chatbot",
-    description: "AI-powered chatbot that acts as your digital twin, answering questions about skills, experience, and achievements in natural conversations.",
-    keywords: ["RAG", "LLM", "Streamlit", "Hugging Face"],
-    img: "https://i.pinimg.com/originals/84/f6/d1/84f6d14f1f88d34d3956150d19060d3a.gif",
-    github: `https://github.com/${personalInfo.github}/devfolio`,
-    link: `https://imagimaniac-ratik-portfolio-bot.hf.space`,
-    techs: ["Streamlit", "Python", "TF-IDF", "Hugging Face Inference API", "Meta Llama 3.2"],
-    highlight: "Zero-cost LLM chatbot",
-    objective: "Build an AI chatbot that serves as a digital twin - answering visitor questions about my professional background without them having to read through the entire resume. The bot needed to be free to host, privacy-conscious, and engaging.",
-    action: "Developed a RAG-powered chatbot using Streamlit for the UI, Hugging Face Inference API for LLM inference (Meta Llama 3.2 1B), and TF-IDF for vector search. Implemented privacy filtering to block salary/financial questions, created an analytics expert persona for consistent tone, and integrated with the portfolio website via iframe.",
-    result: "Live chatbot deployed on Hugging Face Spaces with zero hosting costs. Integrated into portfolio website, allowing visitors to ask natural questions about skills and experience. Privacy protection blocks sensitive queries and redirects to contact information."
   }
 ];
